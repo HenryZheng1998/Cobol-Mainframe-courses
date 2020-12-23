@@ -1,0 +1,123 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. DCJB8WSR.
+       AUTHOR. HENRY ZHENG.
+
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 WS-PHONE-LINE.
+           05 WS-STU-PHONE1 PIC XXX.
+           05 WS-STU-PHONE2 PIC XXX.
+           05 WS-STU-PHONE3 PIC X(4).
+
+       01 WS-POST-CODE.
+           05 WS-STU-POST1 PIC XXX.
+           05 WS-STU-POST2 PIC XXX.
+
+       01 WS-STUNUM-RESP PIC X(7).
+
+       01 WS-COUNT-SPACES PIC 9999.
+       Copy 'STUREQ'.
+       COPY 'STURESP'.
+       COPY 'STUREC'.
+
+       LINKAGE SECTION.
+
+       01 DFHCOMMAREA PIC X(164).
+
+       PROCEDURE DIVISION.
+           MOVE DFHCOMMAREA TO STU-REQ.
+           MOVE LOW-VALUES TO DFHCOMMAREA.
+
+       000-START-LOGIC.
+
+      * Handles can't find student number
+           EXEC CICS HANDLE CONDITION
+                NOTFND(300-NOTFND)
+           END-EXEC.
+
+           GO TO 200-MAIN-LOGIC.
+
+       200-MAIN-LOGIC.
+
+      *VALIDATION
+      *Some code was used from link below to count length of stunum
+      *https://tinyurl.com/ybnctgu8
+           MOVE 0 TO WS-COUNT-SPACES.
+
+           INSPECT FUNCTION REVERSE (STUNUM OF STU-REQ)
+                TALLYING WS-COUNT-SPACES
+                FOR LEADING SPACE.
+
+           COMPUTE WS-COUNT-SPACES =
+                LENGTH OF STUNUM OF STU-REQ - WS-COUNT-SPACES.
+
+           IF (WS-COUNT-SPACES = 0)
+                MOVE LOW-VALUES TO STU-RESP
+                MOVE 'YOU MUST INPUT A STUDENT NUMBER'
+                TO MSG OF STU-RESP
+                MOVE 1 TO STATUS-CODE OF STU-RESP
+                MOVE STU-RESP TO DFHCOMMAREA
+                EXEC CICS RETURN END-EXEC
+           END-IF.
+
+           IF ((WS-COUNT-SPACES > 0 AND WS-COUNT-SPACES < 7) OR
+                WS-COUNT-SPACES > 7)
+                MOVE LOW-VALUES TO STU-RESP
+                MOVE 'STUDENT NUMBER MUST BE 7 CHARACTERS LONG' TO
+                    MSG OF STU-RESP
+                MOVE 1 TO STATUS-CODE OF STU-RESP
+                MOVE STU-RESP TO DFHCOMMAREA
+                EXEC CICS RETURN END-EXEC
+           END-IF.
+
+           IF (STUNUM OF STU-REQ IS NOT NUMERIC)
+                MOVE LOW-VALUES TO STU-RESP
+                MOVE 'STUDENT NUMBER MUST BE NUMBERIC' TO
+                    MSG OF STU-RESP
+                MOVE 1 TO STATUS-CODE OF STU-RESP
+                MOVE STU-RESP TO DFHCOMMAREA
+                EXEC CICS RETURN END-EXEC
+           END-IF.
+
+      * PASSES ALL VALIDATION
+           MOVE STUNUM OF STU-REQ TO STU-NUMBER OF STUREC.
+
+           EXEC CICS READ
+                FILE('STUFILE')
+                INTO(STUFILE-RECORD)
+                RIDFLD(STU-KEY)
+           END-EXEC.
+
+           MOVE 0 TO STATUS-CODE OF STU-RESP
+           MOVE "Success" TO MSG OF STU-RESP.
+
+           MOVE STU-NUMBER TO STUNUM OF STU-RESP.
+           MOVE STU-NAME   TO STUNAME OF STU-RESP.
+           MOVE STU-ADDRESS-1 TO ADDR1 OF STU-RESP.
+           MOVE STU-ADDRESS-2 TO ADDR2 OF STU-RESP.
+           MOVE STU-ADDRESS-3 TO ADDR3 OF STU-RESP.
+
+           MOVE STU-PHONE-1   TO WS-STU-PHONE1.
+           MOVE STU-PHONE-2   TO WS-STU-PHONE2.
+           MOVE STU-PHONE-3   TO WS-STU-PHONE3.
+           MOVE WS-PHONE-LINE TO PHONENUM OF STU-RESP.
+
+           MOVE STU-POSTAL-1     TO WS-STU-POST1.
+           MOVE STU-POSTAL-2     TO WS-STU-POST2.
+           MOVE WS-POST-CODE  TO POSTCODE OF STU-RESP.
+
+           MOVE STU-RESP TO DFHCOMMAREA.
+
+           EXEC CICS RETURN END-EXEC.
+
+       300-NOTFND.
+           MOVE LOW-VALUES TO STU-RESP.
+           MOVE 'STUDENT NOT FOUND' TO MSG OF STU-RESP.
+           MOVE 2 TO STATUS-CODE OF STU-RESP.
+           MOVE STU-RESP TO DFHCOMMAREA.
+           EXEC CICS RETURN END-EXEC.
+
+       END PROGRAM DCJB8WSR.

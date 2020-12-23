@@ -1,0 +1,2 @@
+D:\School\MAFD\Lab 7\Lab7\bin\x86\Debug\Lab7.exe
+D:\School\MAFD\Lab 7\Lab7\obj\x86\Debug\Lab7.exe

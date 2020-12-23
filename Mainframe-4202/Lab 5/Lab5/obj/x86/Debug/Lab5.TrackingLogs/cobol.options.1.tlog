@@ -1,0 +1,6 @@
+^D:\SCHOOL\MAFD\LAB 5\LAB5\TEST.CBL
+MFCBT_Directives=int"D:obj\x86\Debug\test.int" anim cobidy".\bin\x86\Debug\" sourcetabstop"4" noquery osext() warnings"1" max-error"100" . MFCBT_CopyPaths=
+^D:\SCHOOL\MAFD\LAB 5\LAB5\LAB5PROGRAM.CBL
+MFCBT_Directives=int"D:obj\x86\Debug\Lab5Program.int" anim cobidy".\bin\x86\Debug\" sourcetabstop"4" noquery osext() warnings"1" max-error"100" . MFCBT_CopyPaths=
+^D:\SCHOOL\MAFD\LAB 5\LAB5\DATA\TEST.CBL
+MFCBT_Directives=int"D:obj\x86\Debug\test.int" anim cobidy".\bin\x86\Debug\" sourcetabstop"4" noquery osext() warnings"1" max-error"100" . MFCBT_CopyPaths=

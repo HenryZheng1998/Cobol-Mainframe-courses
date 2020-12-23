@@ -1,0 +1,37 @@
+*REPLACE XXX WITH THE LAST 3 CHARACTERS OF YOUR USER ID
+DCJB8MM  DFHMSD TYPE=&SYSPARM,MODE=INOUT,TERM=ALL,                     *
+               LANG=COBOL,TIOAPFX=YES,CTRL=FREEKB,                     *
+               MAPATTS=(COLOR,HILIGHT),DSATTS=(COLOR,HILIGHT)
+MAP1     DFHMDI SIZE=(24,80),LINE=1,COLUMN=1
+TITLE    DFHMDF POS=(3,29),LENGTH=20,ATTRB=ASKIP,                      *
+               INITIAL='M A I N     M E N U'
+         DFHMDF POS=(4,29),LENGTH=20,ATTRB=ASKIP,                      *
+               INITIAL='==================='
+         DFHMDF POS=(7,23),LENGTH=33,ATTRB=ASKIP,                      *
+               INITIAL='F1 - CHOICE 1 - ENTER NEW STUDENT'
+         DFHMDF POS=(9,23),LENGTH=41,ATTRB=ASKIP,                      *
+               INITIAL='F2 - CHOICE 2 - INQUIRE BY STUDENT NUMBER'
+         DFHMDF POS=(11,23),LENGTH=49,ATTRB=ASKIP,                     *
+               INITIAL='F3 - CHOICE 3 - CHANGE OR DELETE EXISTING STUDE*
+               NT'
+         DFHMDF POS=(13,23),LENGTH=38,ATTRB=ASKIP,                     *
+               INITIAL='F4 - CHOICE 4 - SEARCH BY STUDENT NAME'
+         DFHMDF POS=(15,23),LENGTH=32,ATTRB=ASKIP,                     *
+               INITIAL='F9 - CHOICE 9 - EXIT THIS SCREEN'
+         DFHMDF POS=(18,23),LENGTH=23,                                 *
+               INITIAL='ENTER YOUR CHOICE HERE:',                      *
+               ATTRB=(ASKIP,BRT)
+CHOICE   DFHMDF POS=(18,47),LENGTH=1,ATTRB=(FSET,UNPROT,IC)
+         DFHMDF POS=(18,49),LENGTH=1,ATTRB=(ASKIP)
+MSG      DFHMDF POS=(20,20),LENGTH=60,ATTRB=(ASKIP,BRT)
+CTRL     DFHMDF POS=(22,20),LENGTH=27,                                 *
+               INITIAL='F1 - ENTRY     F2 - INQUIRY',                  *
+               ATTRB=(ASKIP,NORM),COLOR=NEUTRAL
+         DFHMDF POS=(23,20),LENGTH=26,                                 *
+               INITIAL='F3 - UPDATE    F4 - BROWSE',                   *
+               ATTRB=(ASKIP,NORM),COLOR=NEUTRAL
+         DFHMDF POS=(24,20),LENGTH=27,                                 *
+               INITIAL='F12 - RESET    F9 - EXIT',                     *
+               ATTRB=(ASKIP,NORM),COLOR=NEUTRAL
+DCJB8MM  DFHMSD TYPE=FINAL
+                 END

@@ -1,0 +1,42 @@
+  Henry Zheng, lab 9                190116     17375823
+
+                    call centre volumes for july - december
+
+  operator  operator      jul    aug    sep    oct    nov    dec    total    avg    rem
+     #        name
+
+    A12      JOHN         100    129    088    092    111    074     594      99    0
+
+    A14      ANNE         092    114    112    077    121    080     596      99    2
+
+    B10      ADAM         000    000    000    000    000    000       0    ZERO
+
+    B12      JOANNE       104    129    088    092    000    000     413     103    1
+
+    B13      LEE          119    104    080    095    131    074     603     100    3
+
+    B14      MARGARET     090    000    000    000    120    121     331     110    1
+
+    C09      SAM          102    102    129    120    099    098     650     108    2
+
+    C11      JOHNNY       088    087    043    000    000    050     268      67    0
+
+    C13      HELEN        130    131    140    112    125    126     764     127    2
+
+    C17      DOMINIC      099    100    099    099    099    099     595      99    1
+
+    C19      GERRY        120    118    120    110    110    094     672     112    0
+
+    C21      EARL         114    000    129    000    130    130     503     125    3
+
+    C22      AMANDA       000    000    000    000    000    000       0    ZERO
+
+    C23      GEORGE       000    000    000    000    000    000       0    ZERO
+
+    C25      MELISSA      134    130    101    121    098    134     718     119    4
+
+    C27      JIM          065    000    045    067    087    100     364      72    4
+
+      number of operators with no calls:  3
+
+      overall total calls:                7071

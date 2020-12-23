@@ -1,0 +1,49 @@
+                                                                       Henry Zheng, Lab 3
+
+
+ ITEM               EXTENDED        DISCOUNT      NET PRICE  CLASS  TRANS   TRANSPORTATION
+                      PRICE          AMOUNT                          %          CHARGE
+
+
+ 1ST PLACE MDL           1.11           0.00           1.11   A     11.5              0.13
+
+ TYPEWRITER         84,000.00           0.00      84,000.00   B     03.5          2,940.00
+
+ HANDLE                100.00           0.00         100.00   A     11.5             11.50
+
+ USB DRIVE         180,000.00           0.00     180,000.00   C     00.0             65.00
+
+ TAPE               25,000.00           0.00      25,000.00   D     08.5          2,125.00
+
+ BOLTS                   7.50           0.00           7.50   A     11.5              0.86
+
+ STAPLER               200.00           0.00         200.00   F     08.5             17.00
+
+ OVERHEAD PROJ      10,098.99           0.00      10,098.99   F     08.5            858.41
+
+ PENCILS                 8.91           0.00           8.91   F     08.5              0.76
+
+ CANADIAN RUGS      27,653.36       1,382.66      26,270.69   D     00.0             65.00
+
+ CARPET              2,000.00           0.00       2,000.00   Z     08.5            170.00
+
+ WASTE BASKETS           3.79           0.00           3.79   C     08.5              0.32
+
+ HINGES                100.00           0.00         100.00   A     11.5             11.50
+
+ PENS (GOLD)           499.90           0.00         499.90   B     03.5             17.50
+
+ PENS (BLACK)          800.00          40.00         760.00   D     00.0             65.00
+
+ HIGH CHAIR      9,989,990.01     499,499.50   9,490,490.50   A     11.5      1,148,848.85
+
+ PLAY PEN           30,895.88           0.00      30,895.88   B     03.5          1,081.36
+
+ LOW BALL                0.01           0.00           0.01   G     08.5              0.00
+
+ LAST RECORD             9.99           0.00           9.99   A     11.5              1.15
+
+                $9,850,447.28                 $9,850,447.28                  $1,156,279.34
+
+
+ ITEMS WITH OUT A DISCOUNT =  15.7%

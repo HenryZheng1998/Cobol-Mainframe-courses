@@ -1,0 +1,114 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. DCXXXPGB.
+       AUTHOR. YOUR NAME.
+
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+      * COPY BROWSE MAP LAYOUT
+       COPY 'DCXXXMB'.
+
+      * COPY ACCTFILE RECORD LAYOUT
+
+       COPY 'ACCTREC'.
+
+       01 WS-MESSAGE             PIC X(60).
+
+       LINKAGE SECTION.
+
+       01 DFHCOMMAREA PIC X(3).
+
+       PROCEDURE DIVISION.
+
+       000-START-LOGIC.
+
+           EXEC CICS HANDLE AID
+                PF2(100-FIRST-TIME)
+                PF9(999-EXIT-RETURN)
+           END-EXEC.
+
+      * UPON UNSUCCESSFUL MAP RECEIVE, ASSUME THIS IS THE INITIAL RUN
+      * CONDITION FOR RECORD NOT FOUND IN ACCTFILE
+           EXEC CICS HANDLE CONDITION
+                MAPFAIL(100-FIRST-TIME)
+                NOTFND(300-ACCTNAME-NOTFND)
+           END-EXEC.
+
+      * TODO: HANDLE dupkey
+
+      * ATTEMPT TO RECEIVE MAP FROM TERMINAL
+           EXEC CICS RECEIVE
+                MAP('MAP1')
+                MAPSET('DCXXXMB')
+           END-EXEC.
+
+      * RECEIVE WAS SUCCESSFUL, PROCEED WITH MAIN PROCESSING
+           GO TO 200-MAIN-LOGIC.
+
+       100-FIRST-TIME.
+
+           MOVE "PLEASE ENTER AN ACCOUNT #" TO WS-MESSAGE.
+           GO TO 999-SEARCH-RETURN.
+
+       200-MAIN-LOGIC.
+
+      * TODO: implement browse logic
+
+       300-ACCTNAME-NOTFND.
+
+           MOVE 'ACCOUNT NOT FOUND' TO WS-MESSAGE.
+           GO TO 999-ERROR-MSG-RETURN.
+
+       999-SEARCH-RETURN.
+
+           MOVE LOW-VALUES TO MAP1O.
+           MOVE "PLEASE ENTER AN ACCOUNT #" TO WS-MESSAGE.
+      * TODO: ADD CODE TO MAKE SEARCH FIELD EDITABLE IF NECESARY!
+           EXEC CICS SEND
+                MAP('MAP1')
+                MAPSET('DCXXXMB')
+                ERASE
+           END-EXEC.
+
+           EXEC CICS RETURN
+               TRANSID('XXX4')
+           END-EXEC.
+
+       999-BROWSE-RETURN.
+      * TODO: ADD CODE TO MAKE SEARCH FIELD EDITABLE IF NECESARY!
+           MOVE "BROWSE ACCOUNTS WITH PF KEYS LISTED BELOW"
+                TO WS-MESSAGE.
+
+           EXEC CICS SEND
+                MAP('MAP1')
+                MAPSET('DCXXXMB')
+                CURSOR
+           END-EXEC.
+
+           EXEC CICS RETURN
+               TRANSID('XXX4')
+           END-EXEC.
+
+       999-ERROR-MSG-RETURN.
+
+           MOVE LOW-VALUES TO MAP1O.
+           MOVE WS-MESSAGE TO MSGO.
+           EXEC CICS SEND
+                MAP('MAP1')
+                MAPSET('DCXXXMB')
+           END-EXEC.
+
+           EXEC CICS RETURN
+               TRANSID('XXX4')
+           END-EXEC.
+
+       999-EXIT-RETURN.
+           MOVE LOW-VALUES TO MAP1O.
+           MOVE 'PROGRAM ENDING' TO MSGO.
+           EXEC CICS SEND MAP('MAP1') MAPSET('DCXXXMB') END-EXEC.
+           EXEC CICS RETURN END-EXEC.
+
+       END PROGRAM DCXXXPGB.

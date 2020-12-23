@@ -1,0 +1,2 @@
+^D:\SCHOOL\MAFD\LAB 3\LAB 3\LAB 3\OBJ\X86\DEBUG\LAB3PROGRAM.OBJ
+MFCBT_Options=-Oobj\x86\Debug\Lab_3.exe -N -FM obj\x86\Debug\Lab3Program.obj . MFCBT_Objs=

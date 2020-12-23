@@ -1,0 +1,77 @@
+
+     Henry Zheng, LAB 4               180328     10384273
+
+                     SALES COMMISSION REPORT
+
+NO.  NAME       SALES    MIN   MAX  RATE     EARNED    PAID   COMMENTS
+---  ----       -----    ---   ---  ----     ------    ----   --------
+
+10   JIM        4,000    300   600   10%        400  $**400
+
+12   BETH       5,000    500 1,000   20%      1,000  $1,000
+
+21   TOM        6,000    500 1,325   20%      1,325  $1,325
+
+30   SALLY        207     50   100   20%         41  $***50   EARNED UNDER MIN
+
+31   GERRY      7,999    600   700    5%        775  $**700   EARNED OVER MAX
+
+39   CINDY      3,751    400   600   19%        713  $**713
+
+45   SAMMY      5,000    500 1,000   10%        500  $**500
+
+49   HARVEY     5,001    875   900   17%        850  $**850
+
+52   PHIL       5,002    999 2,000   19%        951  $**951
+
+60   WILLIAM    9,003     75   950    8%      1,221  $**950   EARNED OVER MAX
+
+     Henry Zheng, LAB 4               180328     10384273
+
+                     SALES COMMISSION REPORT
+
+NO.  NAME       SALES    MIN   MAX  RATE     EARNED    PAID   COMMENTS
+---  ----       -----    ---   ---  ----     ------    ----   --------
+
+61   WANDA      9,006    800 1,000    8%      1,221  $1,000   EARNED OVER MAX
+
+68   GEORGE     4,564    300   900    7%        319  $**319
+
+69   IRVING     4,567    300   900    7%        320  $**320
+
+70   ROSEMARY     999     75   200   29%        290  $**290
+
+73   LARRY      5,005     78 1,200   27%      1,352  $1,200   EARNED OVER MAX
+
+75   RONNIE     9,999    999 9,999   99%     10,524  $9,999   EARNED OVER MAX
+
+77   MARK       4,999    401   900    8%        400  $**401   EARNED UNDER MIN
+
+88   ERIC       4,998    300   400    9%        450  $**450
+
+81   BOB            2     10   900   49%          1  $***10   EARNED UNDER MIN
+
+85   FRANKIE    9,999      1 1,000    1%        725  $**725
+
+     Henry Zheng, LAB 4               180328     10384273
+
+                     SALES COMMISSION REPORT
+
+NO.  NAME       SALES    MIN   MAX  RATE     EARNED    PAID   COMMENTS
+---  ----       -----    ---   ---  ----     ------    ----   --------
+
+87   DAVID      8,888     80   800    8%      1,197  $**800   EARNED OVER MAX
+
+66   MARIO      5,997    999 2,000   23%      1,504  $1,504
+
+98   NANCY      5,010    200 5,000   11%        552  $**552
+
+99   WAYNE      5,998    999 2,000   23%      1,504  $1,504
+
+
+                                    TOTALS  $28,135 $26,513
+
+
+NUMBER WITH BONUS & PAID THE MAXIMUM    :   06
+
+NUMBER WITH NO BONUS & PAID THE MINIMUM :   03
