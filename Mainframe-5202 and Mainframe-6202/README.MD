@@ -2,7 +2,7 @@
 ## The labs for this course (and the next course in Mainframe-6202) builds off each other and I didn't save each progress.
 
 # Project Description
-## During the two course we were working towards the front end part of a school database system with logic to be able to create, read and edit entries into the database and handle validation.
+## Throughout the two semesters, we were working towards the front end part of a school database system with logic to be able to create, read and edit entries into the database and handle validation.
 
 # File Description
 ## DCJB8PGM / DCJB8MM
