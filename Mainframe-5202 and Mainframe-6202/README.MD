@@ -1,5 +1,5 @@
 # Note
-## The labs for this course (and the next course in Mainframe-6202) builds off each other and I didn't save each progress.
+## The labs/assignments for this course (and the next course in Mainframe-6202) builds off each other and I didn't save each progress.
 
 # Project Description
 ## Throughout the two semesters, we were working towards the front end part of a school database system with logic to be able to create, read and edit entries into the database and handle validation.
@@ -15,7 +15,7 @@ When selected, user goes to a new map where user can create a new student for th
 When selected, user goes to a map where user can input a student number to retrieve from the database and display it on the terminal
 
 ## DCJB8PGU / DCJB8MC
-### When selected, user goes to a map where there are two modes, Inquiry mode and Update mode. 
+When selected, user goes to a map where there are two modes, Inquiry mode and Update mode. 
 In Inquiry mode, only the student number field is unlocked; user can only input a student number which displays it in the terminal which then switches to Update mode. 
 In Update mode, it locks the student number field and unlocks the rest of the field which displays the inputed student number's information. Here the user can edit the fields and save.
 
